@@ -1,11 +1,11 @@
 @echo off
 
-:: Check if the script is running as administrator
-whoami /groups | find "S-1-5-32-544" >nul 2>&1
+:: Check if running as admin
+net session >nul 2>&1
 if %errorlevel% neq 0 (
-    echo This script must be run as an administrator.
-    echo Right-click this file and select "Run as Administrator."
-    pause
+    :: Relaunch the script with admin privileges
+    echo This script requires administrator privileges. Relaunching as administrator...
+    powershell -Command "Start-Process '%~f0' -Verb runAs"
     exit /b
 )
 
